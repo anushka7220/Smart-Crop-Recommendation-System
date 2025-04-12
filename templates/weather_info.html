@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Information</title>
+</head>
+<body>
+    <div class="weather-data">
+        <h2>Weather Information for {{ location }}</h2>
+        <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
+        <p><strong>Humidity:</strong> {{ weather_data.humidity }}%</p>
+        <p><strong>Rainfall:</strong> {{ weather_data.rainfall }} mm</p>
+        <p><strong>Conditions:</strong> {{ weather_data.weather_description }}</p>
+    </div>
+</body>
+</html>

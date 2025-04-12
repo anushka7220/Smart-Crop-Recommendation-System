@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tips for {{ crop }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f8ff;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            text-align: left;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .tip {
+            margin-bottom: 20px;
+        }
+        .tip h3 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .tip p {
+            color: #555;
+            margin: 0;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-button a {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Tips for {{ crop }}</h1>
+        <div class="tip">
+            <h3>Soil Health Tips</h3>
+            <p>{{ tips.soil_health }}</p>
+        </div>
+        <div class="tip">
+            <h3>Irrigation Tips</h3>
+            <p>{{ tips.irrigation }}</p>
+        </div>
+        <div class="tip">
+            <h3>Pest Control Measures</h3>
+            <p>{{ tips.pest_control }}</p>
+        </div>
+        <div class="tip">
+            <h3>Disease Prevention Strategies</h3>
+            <p>{{ tips.disease_prevention }}</p>
+        </div>
+        <div class="tip">
+            <h3>Climate Considerations</h3>
+            <p>{{ tips.climate }}</p>
+        </div>
+        <div class="back-button">
+            <a href="/">Back to Prediction</a>
+        </div>
+    </div>
+</body>
+</html>

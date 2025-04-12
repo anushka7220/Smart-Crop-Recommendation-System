@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detailed Recommendations</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        .recommendations-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .recommendation-item {
+            margin: 15px 0;
+            padding: 12px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #2980b9;
+        }
+        .error-message {
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="recommendations-container">
+        {% if error %}
+        <div class="error-message">
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+
+        <h1>Detailed Recommendations</h1>
+        
+        <div class="section">
+            <h2>Soil Analysis</h2>
+            {% if soil_type %}
+                <p>Your soil type: <strong>{{ soil_type }}</strong></p>
+            {% else %}
+                <p class="error-message">Soil type data not available</p>
+            {% endif %}
+        </div>
+        
+        <div class="section">
+            <h2>Weather Conditions</h2>
+            {% if weather_data %}
+                <p><strong>Temperature:</strong> {{ weather_data.temperature }}°C</p>
+                <p><strong>Humidity:</strong> {{ weather_data.humidity }}%</p>
+                <p><strong>Rainfall:</strong> {{ weather_data.rainfall }} mm</p>
+                <p><strong>Conditions:</strong> {{ weather_data.weather_description }}</p>
+            {% else %}
+                <p class="error-message">Weather data not available</p>
+            {% endif %}
+        </div>
+        
+        <div class="section">
+            <h2>Recommendations</h2>
+            {% if recommendations and recommendations|length > 0 %}
+                {% for recommendation in recommendations %}
+                <div class="recommendation-item">
+                    {{ loop.index }}. {{ recommendation }}
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="error-message">No recommendations available</p>
+            {% endif %}
+        </div>
+
+        <a href="/" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>
